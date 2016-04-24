@@ -1,0 +1,24 @@
+{
+  "name": "smartssh",
+  "version": "1.0.0",
+  "description": "setups SSH quickly and in a painless manner",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "(npmts)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pushrocks/smartssh.git"
+  },
+  "keywords": [
+    "SSH",
+    "ENV",
+    "base64"
+  ],
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pushrocks/smartssh/issues"
+  },
+  "homepage": "https://github.com/pushrocks/smartssh#readme"
+}

@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '4'
+- stable
+deploy:
+  provider: npm
+  email: npm@lossless.digital
+  api_key:
+    secure: xApCMlDyZcTOgq+iomxR2A/2aMBhhPpgEBxdFYqXDNC/AGkr+NQJhGt67W4840FMrSUFEDZNQhOS+t6gYMqxUHv+vJFc0cHskFSuLDnAH2MS45TqtFYNcP+GARs1suuM9Il5hXNEvjVJ6XF0lYlNlK8mJstKQscdEKWyBHj42oSsgWRcuzBgqps8Vnbp+Ey2Bpfaw1yV+P1fyv8dNnkwG5dSt3EIxAcbGiMOhCz0u6oMroKfAYfNTxMJjja2uJJOqoTTShzeMyIYx+YwxorcZGfchI+TOPHHeVc+fByCHfzTZJYCy9qTSSTvWcKD/H7q3RGciEXHzhwMj0d8dlY3WPHC6BBliD6bLwVgDmToD3cdHm8OLsxW7hjFLO51vOIbhJZrWBVztlusuLwuyVAlIgeAsV8Yb5FxetxZmBU42qr5itykPl45rNd7talI0ZcoFPRTAWxxmCD8hp0d3ZLdjcEdbCzc5GYmEFN0NwKLTZF3Q1G4UbsHMgN8Pe4ohjdaYYhJ7RKgbmLR0J4NBrWIAUOhDaUTkZhgsHFyEmtbKI6JkxQtwCEBBBursemZWFQSIdtj2+O/RBaBCgoUNIpxUDBFq+D3Pir7BZP7DK2m3Otl0F9aCdqJmhCc7rOn3MueLpmndjtO1RFteXAdAkDxKp2RehIB6yohxbRmQ1O9PsA=
+  on:
+    tags: true
+    repo: pushrocks/smartssh
