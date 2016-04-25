@@ -5,13 +5,13 @@ import helpers = require("./smartssh.classes.helpers");
 export class ssh {
     private sshDir:string;
     private sshKeys:sshKey[];
-    private sync:boolean; // if set to true, the ssh dir will be kept in sync automatically
-    constructor(optionsArg:{sshDir?:string,sync?:boolean}={}){
+    private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
+    constructor(optionsArg:{sshDir?:string,sshSync?:boolean}={}){
         this.sshDir = optionsArg.sshDir
         this.sshDir ?
             this.sshKeys = helpers.sshKeyArrayFromDir(this.sshDir)
             : void(0);
-        this.sync = optionsArg.sync;
+        this.sshSync = optionsArg.sshSync;
     };
     
 }
