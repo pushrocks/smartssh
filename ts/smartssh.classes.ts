@@ -26,6 +26,14 @@ export class ssh {
             return undefined;
         }
     };
+    removeKey(sshKeyArg:sshKey){
+        let keyIndex = helpers.getKeyIndex(sshKeyArg.host);
+        this.sshKeys.splice(keyIndex,1);
+    };
+    replaceKey(sshKeyOldArg:sshKey,sshKeyNewArg:sshKey){
+        let keyIndex = helpers.getKeyIndex(sshKeyOldArg.host);
+        this.sshKeys.splice(keyIndex,1,sshKeyNewArg);
+    };
     sync(){
         this.sshDir.sync(this.sshConfig,this.sshKeys); //call sync method of sshDir class;
     };
