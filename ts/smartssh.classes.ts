@@ -3,17 +3,45 @@ import plugins = require("./smartssh.plugins");
 import helpers = require("./smartssh.classes.helpers");
 
 export class ssh {
-    private sshDir:string;
-    private sshKeys:sshKey[];
+    private sshConfig:sshConfig;
+    private sshDir:sshDir;
+    private sshKeys:sshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDir?:string,sshSync?:boolean}={}){
-        this.sshDir = optionsArg.sshDir
-        this.sshDir ?
-            this.sshKeys = helpers.sshKeyArrayFromDir(this.sshDir)
-            : void(0);
+        this.sshDir = new sshDir(optionsArg.sshDir);
+        this.sshKeys = this.sshDir.getKeys();
         this.sshSync = optionsArg.sshSync;
     };
-    
+    addKey(sshKeyArg:sshKey){
+        this.sshKeys.push(sshKeyArg);
+        this.sync();
+    };
+    getKey(hostArg:string){
+        let filteredArray = this.sshKeys.filter(function(keyArg){
+            return (keyArg.host == hostArg);
+        });
+        if(filteredArray.length > 0){
+            return filteredArray[0];
+        } else {
+            return undefined;
+        }
+    };
+    sync(){
+        this.sshDir.sync(this.sshConfig,this.sshKeys); //call sync method of sshDir class;
+    };
+}
+
+class sshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
+    path:string;
+    constructor(sshDirPathArg:string){
+        this.path = sshDirPathArg;
+    }
+    sync(sshConfigArg:sshConfig,sshKeysArg:sshKey[]){
+        
+    };
+    getKeys(){
+        return helpers.sshKeyArrayFromDir(this.path);
+    }
 }
 
 export class sshConfig {
@@ -25,13 +53,17 @@ export class sshConfig {
 export class sshKey {
     private privKey:string;
     private pubKey:string;
-    constructor(optionsArg:{private:string,public:string}){
-        if(!optionsArg) optionsArg = {private:undefined,public:undefined};
+    private hostVar:string;
+    constructor(optionsArg:{private?:string,public?:string,host?:string}={}){
         this.privKey = optionsArg.private;
         this.pubKey = optionsArg.public;
+        this.hostVar = optionsArg.host;
     };
     
     // getters
+    get host(){
+        return this.hostVar;
+    };
     get privateKey(){
         return this.privKey;
     };
@@ -55,6 +87,9 @@ export class sshKey {
     };
     
     // setters
+    set host(hostArg:string){
+        this.hostVar = hostArg;
+    };
     set privateKey(privateKeyArg:string){
         this.privKey = privateKeyArg;
     };

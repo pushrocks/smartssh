@@ -16,16 +16,18 @@ var sshInstance = new smartssh.sshInstance({
 sshInstance.addKey(new smartssh.sshKey({ 
     private: "somestring",
     public: "somestring", // optional
-    for:"github.com",
+    host:"github.com",
     encoding: "base64" // optional, defaults to "utf8", can be "utf8" or "base64", useful for reading ssh keys from environment variables
 }));
 
+sshInstance.removeKey(sshInstance.getKey("github.com")); // removes key for host "github.com" is present
+
 sshInstance.createKey({
-    for:"gitlab.com" // returns new key in the form sshKey, read more about the sshKey class below
+    host:"gitlab.com" // returns new key in the form sshKey, read more about the sshKey class below
 })
 
 sshInstance.getKey({ // returns ssh key in the form sshKey, read more about the sshKey class below
-    for:"github.com"
+    host:"github.com"
 });
 
 sshInstance.getKeys() // returns array of all available getKeys. Each key is in form of class sshKey
