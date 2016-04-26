@@ -3,8 +3,8 @@ import plugins = require("./smartssh.plugins");
 import helpers = require("./smartssh.classes.helpers");
 
 export class ssh {
-    private sshConfig:sshConfig;
-    private sshDir:sshDir;
+    private sshConfig:sshConfig; // points to sshConfig class instance
+    private sshDir:sshDir; // points to sshDir class instance.
     private sshKeys:sshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDir?:string,sshSync?:boolean}={}){
@@ -29,13 +29,17 @@ export class ssh {
     removeKey(sshKeyArg:sshKey){
         let keyIndex = helpers.getKeyIndex(sshKeyArg.host);
         this.sshKeys.splice(keyIndex,1);
+        this.sync();
     };
     replaceKey(sshKeyOldArg:sshKey,sshKeyNewArg:sshKey){
         let keyIndex = helpers.getKeyIndex(sshKeyOldArg.host);
         this.sshKeys.splice(keyIndex,1,sshKeyNewArg);
+        this.sync();
     };
     sync(){
-        this.sshDir.sync(this.sshConfig,this.sshKeys); //call sync method of sshDir class;
+        if(this.sshSync){
+            this.sshDir.sync(this.sshConfig,this.sshKeys); // call sync method of sshDir class;
+        }
     };
 }
 
