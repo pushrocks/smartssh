@@ -2,7 +2,6 @@
 setups SSH quickly and in a painless manner
 
 > Attention: This is still alpha, so some things won't work, not all things are inplemented.
-I (Phil from Lossless) expect this to be ready 2016/05/01.
 
 ## Usage
 

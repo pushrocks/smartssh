@@ -2,19 +2,21 @@ import "typings-global"
 import * as plugins from "./smartssh.plugins";
 import * as helpers from "./smartssh.classes.helpers";
 
-import {sshDir} from "./smartssh.classes.sshdir";
+import {SshDir} from "./smartssh.classes.sshdir";
+import {SshConfig} from "./smartssh.classes.sshconfig";
+import {SshKey} from "./smartssh.classes.sshkey";
 
-export class ssh {
-    private sshConfig:sshConfig; // points to sshConfig class instance
-    private sshDir:sshDir; // points to sshDir class instance.
-    private sshKeys:sshKey[]; //holds all ssh keys
+export class Ssh {
+    private sshConfig:SshConfig; // points to sshConfig class instance
+    private sshDir:SshDir; // points to sshDir class instance.
+    private sshKeys:SshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDir?:string,sshSync?:boolean}={}){
-        this.sshDir = new sshDir(optionsArg.sshDir);
+        this.sshDir = new SshDir(optionsArg.sshDir);
         this.sshKeys = this.sshDir.getKeys();
         this.sshSync = optionsArg.sshSync;
     };
-    addKey(sshKeyArg:sshKey){
+    addKey(sshKeyArg:SshKey){
         this.sshKeys.push(sshKeyArg);
         this.sync();
     };
@@ -28,12 +30,12 @@ export class ssh {
             return undefined;
         }
     };
-    removeKey(sshKeyArg:sshKey){
+    removeKey(sshKeyArg:SshKey){
         let keyIndex = helpers.getKeyIndex(sshKeyArg.host);
         this.sshKeys.splice(keyIndex,1);
         this.sync();
     };
-    replaceKey(sshKeyOldArg:sshKey,sshKeyNewArg:sshKey){
+    replaceKey(sshKeyOldArg:SshKey,sshKeyNewArg:SshKey){
         let keyIndex = helpers.getKeyIndex(sshKeyOldArg.host);
         this.sshKeys.splice(keyIndex,1,sshKeyNewArg);
         this.sync();

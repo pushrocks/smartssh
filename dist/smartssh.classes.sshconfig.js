@@ -1,0 +1,10 @@
+"use strict";
+require("typings-global");
+var SshConfig = (function () {
+    function SshConfig() {
+    }
+    return SshConfig;
+}());
+exports.SshConfig = SshConfig;
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNtYXJ0c3NoLmNsYXNzZXMuc3NoY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxRQUFPLGdCQUFnQixDQUFDLENBQUE7QUFHeEI7SUFDSTtJQUVBLENBQUM7SUFDTCxnQkFBQztBQUFELENBSkEsQUFJQyxJQUFBO0FBSlksaUJBQVMsWUFJckIsQ0FBQSIsImZpbGUiOiJzbWFydHNzaC5jbGFzc2VzLnNzaGNvbmZpZy5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBcInR5cGluZ3MtZ2xvYmFsXCI7XHJcbmltcG9ydCAqIGFzIHBsdWdpbnMgZnJvbSBcIi4vc21hcnRzc2gucGx1Z2luc1wiO1xyXG5pbXBvcnQgKiBhcyBoZWxwZXJzIGZyb20gXCIuL3NtYXJ0c3NoLmNsYXNzZXMuaGVscGVyc1wiO1xyXG5leHBvcnQgY2xhc3MgU3NoQ29uZmlnIHtcclxuICAgIGNvbnN0cnVjdG9yKCl7XHJcbiAgICAgICAgXHJcbiAgICB9XHJcbn0iXX0=

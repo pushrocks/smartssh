@@ -1,8 +1,8 @@
 import "typings-global"
-import plugins = require("./smartssh.plugins");
-import classes = require("./smartssh.classes");
+import * as plugins from "./smartssh.plugins";
+import {SshKey} from "./smartssh.classes.sshkey";
 
-export let sshKeyArrayFromDir = function(dirArg:string):classes.sshKey[]{
+export let sshKeyArrayFromDir = function(dirArg:string):SshKey[]{
     let sshKeyArray = []; //TODO
     return sshKeyArray;
 }
