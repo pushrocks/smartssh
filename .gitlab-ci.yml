@@ -31,13 +31,10 @@ release:
 pages:
   stage: page
   script:
-  - npmci test lts
-  - mkdir .public
-  - cp -r test/assets/docs/ .public
-  - cp -r test/assets/coverage/ .public
-  - mv .public public
+  - npmci npmpage
   artifacts:
     paths:
     - public
   only:
   - master
+  - tags
