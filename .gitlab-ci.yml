@@ -31,6 +31,7 @@ release:
 pages:
   stage: page
   script:
+  - mkdir public
   - npmci npmpage
   artifacts:
     paths:
