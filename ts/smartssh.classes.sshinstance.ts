@@ -6,8 +6,8 @@ import {SshDir} from "./smartssh.classes.sshdir";
 import {SshConfig} from "./smartssh.classes.sshconfig";
 import {SshKey} from "./smartssh.classes.sshkey";
 
-export class Ssh {
-    private sshConfig:SshConfig; // points to sshConfig class instance
+export class SshInstance {
+    private sshConfig:SshConfig; // sshConfig (e.g. represents ~/.ssh/config)
     private sshDir:SshDir; // points to sshDir class instance.
     private sshKeys:SshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
