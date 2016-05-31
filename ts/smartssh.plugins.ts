@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global"
 export let beautylog = require("beautylog");
 export let base64 = require("js-base64").Base64;
 export let fs = require("fs-extra");

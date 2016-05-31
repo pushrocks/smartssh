@@ -1,4 +1,4 @@
-/// <reference path="./typings/main.d.ts" />
+import "typings-global"
 import plugins = require("./smartssh.plugins");
 import helpers = require("./smartssh.classes.helpers");
 
