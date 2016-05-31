@@ -1,3 +1,3 @@
 import "typings-global"
-import plugins = require("./smartssh.plugins");
-import classes = require("./smartssh.classes");
+import * as plugins from "./smartssh.plugins";
+import {} from "./smartssh.classes.ssh";
