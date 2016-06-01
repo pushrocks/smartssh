@@ -4,7 +4,12 @@ import smartssh = require("../dist/index");
 describe("smartssh",function(){
     let testSshInstance:smartssh.SshInstance;
     let testSshKey:smartssh.SshKey;
-    describe("SshInstance",function(){
+    describe(".SshKey",function(){
+        it("should represent a valid SshKey",function(){
+            
+        });
+    });
+    describe(".SshInstance",function(){
         it("'new' keyword should create a new SshInstance object from class",function(){
             testSshInstance = new smartssh.SshInstance();
             testSshInstance.should.be.instanceof(smartssh.SshInstance);
@@ -40,5 +45,5 @@ describe("smartssh",function(){
             testSshInstance.removeKey(testSshInstance.getKey("bitbucket.org"));
             testSshInstance.sshKeys[1].host.should.equal("github.com");
         })
-    })
+    });
 })

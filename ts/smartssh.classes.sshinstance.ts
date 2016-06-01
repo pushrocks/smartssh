@@ -35,10 +35,8 @@ export class SshInstance {
     };
     replaceKey(sshKeyOldArg:SshKey,sshKeyNewArg:SshKey){
         this.sync("from");
-        let filteredArray = this.sshKeyArray.filter((sshKeyArg:SshKey) => {
-            return (sshKeyArg.host == "some"); //TODO
-        });
-        this.sshKeyArray = filteredArray;
+        this.removeKey(sshKeyOldArg);
+        this.addKey(sshKeyNewArg);
         this.sync("to");
     };
     
@@ -55,6 +53,7 @@ export class SshInstance {
         }
     };
     get sshKeys():SshKey[] {
+        this.sync("from");
         return this.sshKeyArray;
     }
     sync(directionArg:string){
