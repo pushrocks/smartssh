@@ -6,7 +6,8 @@ import {SshKey} from "./smartssh.classes.sshkey";
 import {SshConfig} from "./smartssh.classes.sshconfig";
 export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
     path:string; // the path of the ssh directory
-    constructor(sshDirPathArg:string){
+    sshInstance:SshInstance;
+    constructor(sshInstanceArg:SshInstance,sshDirPathArg?:string){
         let sshDirPath:string;
         if(sshDirPathArg){
             sshDirPath = sshDirPathArg;
@@ -15,7 +16,7 @@ export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
         }
         this.path = sshDirPath;
     }
-    syncToDir(sshInstanceArg:SshInstance){ //syncs 
+    syncToDir(){ //syncs 
         
     };
     syncFromDir(){

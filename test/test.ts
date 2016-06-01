@@ -27,7 +27,9 @@ describe("smartssh",function(){
             }));
         });
         it("should return an array of sshKeys",function(){
-            testSshInstance.getKeys();
+            let sshKeyArray = testSshInstance.sshKeys;
+            sshKeyArray.should.be.Array();
+            sshKeyArray[0].host.should.equal("gitlab.com");
         });
     })
 })
