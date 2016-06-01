@@ -27,19 +27,23 @@ export class SshInstance {
     };
     removeKey(sshKeyArg:SshKey){
         this.sync("from");
-        let keyIndex = helpers.getKeyIndex(sshKeyArg.host);
-        this.sshKeyArray.splice(keyIndex,1);
+        let filteredArray = this.sshKeyArray.filter((sshKeyArg2:SshKey) => {
+            return (sshKeyArg != sshKeyArg2);
+        });
+        this.sshKeyArray = filteredArray;
         this.sync("to");
     };
     replaceKey(sshKeyOldArg:SshKey,sshKeyNewArg:SshKey){
         this.sync("from");
-        let keyIndex = helpers.getKeyIndex(sshKeyOldArg.host);
-        this.sshKeyArray.splice(keyIndex,1,sshKeyNewArg);
+        let filteredArray = this.sshKeyArray.filter((sshKeyArg:SshKey) => {
+            return (sshKeyArg.host == "some"); //TODO
+        });
+        this.sshKeyArray = filteredArray;
         this.sync("to");
     };
     
     //
-    getKey(hostArg:string){
+    getKey(hostArg:string):SshKey{
         this.sync("from");
         let filteredArray = this.sshKeyArray.filter(function(keyArg){
             return (keyArg.host == hostArg);
@@ -56,9 +60,9 @@ export class SshInstance {
     sync(directionArg:string){
         if(this.sshSync && directionArg == "from"){
             this.sshDir.syncFromDir(); // call sync method of sshDir class;
-        } else if (this.sshSync && directionArg == "to") {
+        } else if(this.sshSync && directionArg == "to") {
             this.sshDir.syncToDir();
-        } else {
+        } else if(this.sshSync) {
             throw new Error("directionArg not recognised. Must be 'to' or 'from'");
         }
     };

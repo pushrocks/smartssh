@@ -23,7 +23,7 @@ export class SshKey {
         return plugins.base64.encode(this.privKey);
     }
     get publicKey(){
-        return this.publicKey;
+        return this.pubKey;
     }
     get publicKeyBase64(){
         return plugins.base64.encode(this.pubKey);
