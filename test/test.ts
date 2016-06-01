@@ -9,8 +9,25 @@ describe("smartssh",function(){
             testSshInstance = new smartssh.SshInstance();
             testSshInstance.should.be.instanceof(smartssh.SshInstance);
         });
+        it("should accept a new SshKey object",function(){
+            testSshInstance.addKey(new smartssh.SshKey({
+                public:"somePublicKey",
+                private:"somePrivateKey",
+                host:"gitlab.com"
+            }));
+            testSshInstance.addKey(new smartssh.SshKey({
+                public:"somePublicKey",
+                private:"somePrivateKey",
+                host:"bitbucket.org"
+            }));
+            testSshInstance.addKey(new smartssh.SshKey({
+                public:"somePublicKey",
+                private:"somePrivateKey",
+                host:"github.com"
+            }));
+        });
         it("should return an array of sshKeys",function(){
-            
-        })
+            testSshInstance.getKeys();
+        });
     })
 })

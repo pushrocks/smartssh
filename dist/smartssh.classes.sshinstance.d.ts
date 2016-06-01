@@ -11,6 +11,7 @@ export declare class SshInstance {
     });
     addKey(sshKeyArg: SshKey): void;
     getKey(hostArg: string): SshKey;
+    getKeys(): SshKey[];
     removeKey(sshKeyArg: SshKey): void;
     replaceKey(sshKeyOldArg: SshKey, sshKeyNewArg: SshKey): void;
     sync(): void;

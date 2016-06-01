@@ -31,6 +31,11 @@ export class SshInstance {
             return undefined;
         }
     };
+    
+    getKeys(){
+        return this.sshKeys;
+    }
+    
     removeKey(sshKeyArg:SshKey){
         let keyIndex = helpers.getKeyIndex(sshKeyArg.host);
         this.sshKeys.splice(keyIndex,1);
