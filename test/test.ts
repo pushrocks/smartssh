@@ -5,9 +5,26 @@ describe("smartssh",function(){
     let testSshInstance:smartssh.SshInstance;
     let testSshKey:smartssh.SshKey;
     describe(".SshKey",function(){
-        it("should represent a valid SshKey",function(){
-            
+        it("'new' keyword should create a valid SshKey object",function(){
+            testSshKey = new smartssh.SshKey({
+                host:"example.com",
+                private:"someExamplePrivateKey",
+                public:"someExamplePublicKey"
+            });
+            testSshKey.should.be.instanceof(smartssh.SshKey);
         });
+        it(".type should be a valid type",function(){
+            testSshKey.type.should.equal("duplex");
+        });
+        it(".publicKey should be public key",function(){
+            testSshKey.publicKey.should.equal("someExamplePublicKey");
+        });
+        it(".privateKey should be private key",function(){
+            testSshKey.privateKey.should.equal("someExamplePrivateKey");
+        });
+        it(".publicKeyBase64 should be public key base 64 encoded",function(){
+            testSshKey.publicKeyBase64;
+        })
     });
     describe(".SshInstance",function(){
         it("'new' keyword should create a new SshInstance object from class",function(){
