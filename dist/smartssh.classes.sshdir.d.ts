@@ -1,9 +1,10 @@
 import "typings-global";
+import { SshInstance } from "./smartssh.classes.sshinstance";
 import { SshKey } from "./smartssh.classes.sshkey";
-import { SshConfig } from "./smartssh.classes.sshconfig";
 export declare class SshDir {
     path: string;
     constructor(sshDirPathArg: string);
-    sync(sshConfigArg: SshConfig, sshKeysArg: SshKey[]): void;
+    syncToDir(sshInstanceArg: SshInstance): void;
+    syncFromDir(): void;
     getKeys(): SshKey[];
 }

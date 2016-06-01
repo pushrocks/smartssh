@@ -1,6 +1,6 @@
 import "typings-global";
 import { SshKey } from "./smartssh.classes.sshkey";
-export declare class Ssh {
+export declare class SshInstance {
     private sshConfig;
     private sshDir;
     private sshKeys;

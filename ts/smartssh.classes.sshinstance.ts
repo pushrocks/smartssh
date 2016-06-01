@@ -12,6 +12,7 @@ export class SshInstance {
     private sshKeys:SshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDir?:string,sshSync?:boolean}={}){
+        optionsArg ? void(0) : optionsArg = {};
         this.sshDir = new SshDir(optionsArg.sshDir);
         this.sshKeys = this.sshDir.getKeys();
         this.sshSync = optionsArg.sshSync;

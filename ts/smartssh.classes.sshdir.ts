@@ -1,6 +1,7 @@
 import "typings-global";
 import * as plugins from "./smartssh.plugins";
 import * as helpers from "./smartssh.classes.helpers";
+import {SshInstance} from "./smartssh.classes.sshinstance";
 import {SshKey} from "./smartssh.classes.sshkey";
 import {SshConfig} from "./smartssh.classes.sshconfig";
 export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
@@ -10,13 +11,16 @@ export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
         if(sshDirPathArg){
             sshDirPath = sshDirPathArg;
         } else {
-            sshDirPath = plugins.smartpath.home
+            sshDirPath = plugins.smartpath.get.home();
         }
         this.path = sshDirPath;
     }
-    sync(sshConfigArg:SshConfig,sshKeysArg:SshKey[]){
+    syncToDir(sshInstanceArg:SshInstance){ //syncs 
         
     };
+    syncFromDir(){
+        
+    }
     getKeys(){
         return helpers.sshKeyArrayFromDir(this.path);
     }
