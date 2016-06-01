@@ -19,6 +19,12 @@ testSTABLE:
   tags:
     - docker
 
+testLEGACY:
+  stage: test
+  script:
+    - npmci test 0
+  allow_failure: true
+
 release:
   stage: release
   script:
