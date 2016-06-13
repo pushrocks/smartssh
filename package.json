@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/pushrocks/smartssh#readme",
   "dependencies": {
-    "beautylog": "^5.0.8",
+    "beautylog": "^5.0.10",
     "fs-extra": "^0.30.0",
     "js-base64": "^2.1.9",
     "smartfile": "^3.0.10",
@@ -32,7 +32,7 @@
     "typings-test": "^1.0.1"
   },
   "devDependencies": {
-    "npmts": "^5.1.19",
-    "should": "^9.0.0"
+    "npmts-g": "^5.2.6",
+    "should": "^9.0.2"
   }
 }
