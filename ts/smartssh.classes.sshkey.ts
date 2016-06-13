@@ -67,7 +67,7 @@ export class SshKey {
         } else { //we assume we are given a directory as filePathArg, so we store the whole key
             plugins.fs.ensureDirSync(filePathObj.dir);
             this.store(plugins.path.join(filePathObj.dir,"key.priv")); // call this function recursivly
-            this.store(plugins.path.join(filePathObj.dir,"key.priv")); // call this function recursivly
+            this.store(plugins.path.join(filePathObj.dir,"key.pub")); // call this function recursivly
         }
     }
 }

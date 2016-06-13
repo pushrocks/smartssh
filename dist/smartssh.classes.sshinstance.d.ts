@@ -3,7 +3,7 @@ import { SshKey } from "./smartssh.classes.sshkey";
 export declare class SshInstance {
     private sshConfig;
     private sshDir;
-    private sshKeyArray;
+    protected sshKeyArray: SshKey[];
     private sshSync;
     constructor(optionsArg?: {
         sshDirPath?: string;

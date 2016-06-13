@@ -9,13 +9,12 @@ import {SshKey} from "./smartssh.classes.sshkey";
 export class SshInstance {
     private sshConfig:SshConfig; // sshConfig (e.g. represents ~/.ssh/config)
     private sshDir:SshDir; // points to sshDir class instance.
-    private sshKeyArray:SshKey[]; //holds all ssh keys
+    protected sshKeyArray:SshKey[]; //holds all ssh keys
     private sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDirPath?:string,sshSync?:boolean}={}){
         optionsArg ? void(0) : optionsArg = {};
-        
         this.sshDir = new SshDir(this,optionsArg.sshDirPath);
-        this.sshKeyArray = this.sshDir.getKeys();
+        this.sshKeyArray = [];
         this.sshSync = optionsArg.sshSync;
     };
     
