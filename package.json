@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pushrocks/smartssh.git"
+    "url": "git+https://gitlab.com/pushrocks/smartssh.git"
   },
   "keywords": [
     "SSH",
@@ -19,9 +19,9 @@
   "author": "Lossless GmbH",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pushrocks/smartssh/issues"
+    "url": "https://gitlab.com/pushrocks/smartssh/issues"
   },
-  "homepage": "https://github.com/pushrocks/smartssh#readme",
+  "homepage": "https://gitlab.com/pushrocks/smartssh#readme",
   "dependencies": {
     "beautylog": "^5.0.10",
     "fs-extra": "^0.30.0",
