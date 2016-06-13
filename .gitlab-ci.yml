@@ -24,7 +24,7 @@ testSTABLE:
 testLEGACY:
   stage: test
   script:
-    - npmci test 0
+    - npmci test legacy
   allow_failure: true
 
 release:
