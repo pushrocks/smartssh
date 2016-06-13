@@ -10,9 +10,9 @@ export declare class SshKey {
     });
     host: string;
     privateKey: string;
-    privateKeyBase64: any;
+    privateKeyBase64: string;
     publicKey: string;
-    publicKeyBase64: any;
+    publicKeyBase64: string;
     type: string;
     store(filePathArg?: string): void;
 }

@@ -45,10 +45,18 @@ export class SshKey {
     set privateKey(privateKeyArg:string){
         this.privKey = privateKeyArg;
     };
-    // setters
+    
+    set privateKeyBase64(privateKeyArg:string) {
+        this.privKey = plugins.base64.decode(privateKeyArg);
+    }
+
     set publicKey(publicKeyArg:string){
         this.pubKey = publicKeyArg;
     };
+
+    set publicKeyBase64(publicKeyArg:string) {
+        this.pubKey = plugins.base64.decode(publicKeyArg);
+    }
     
     store(filePathArg?:string){
         let filePathObj = plugins.path.parse(filePathArg);
