@@ -1,4 +1,4 @@
-image: hosttoday/ht-docker-node:latest
+image: hosttoday/ht-docker-node:npmts
 
 stages:
 - test
@@ -11,6 +11,7 @@ testLTS:
     - npmci test lts
   tags:
     - docker
+    - lossless
     
 testSTABLE:
   stage: test
@@ -18,6 +19,7 @@ testSTABLE:
     - npmci test stable
   tags:
     - docker
+    - lossless
 
 testLEGACY:
   stage: test
@@ -33,6 +35,7 @@ release:
     - tags
   tags:
     - docker
+    - lossless
     
 pages:
   stage: page
@@ -42,5 +45,6 @@ pages:
   artifacts:
     paths:
     - public
-  only:
-  - tags
+  tags:
+    - docker
+    - lossless
