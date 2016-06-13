@@ -36,15 +36,3 @@ release:
   tags:
     - docker
     - lossless
-    
-pages:
-  stage: page
-  script:
-  - mkdir public
-  - npmci npmpage
-  artifacts:
-    paths:
-    - public
-  tags:
-    - docker
-    - lossless
