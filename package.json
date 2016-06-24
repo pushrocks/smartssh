@@ -23,11 +23,11 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartssh#readme",
   "dependencies": {
-    "beautylog": "^5.0.10",
+    "beautylog": "^5.0.12",
     "fs-extra": "^0.30.0",
     "js-base64": "^2.1.9",
-    "minimatch": "^3.0.0",
-    "smartfile": "^3.0.10",
+    "minimatch": "^3.0.2",
+    "smartfile": "^4.0.4",
     "smartpath": "^3.2.2",
     "typings-global": "^1.0.3",
     "typings-test": "^1.0.1"

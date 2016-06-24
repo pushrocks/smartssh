@@ -16,10 +16,10 @@ export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
         }
         this.path = sshDirPath;
     }
-    syncToDir(){ // syncs sshInstance to directory
+    writeToDir(){ // syncs sshInstance to directory
         
     };
-    syncFromDir(){ // syncs sshInstance from directory
+    readFromDir(){ // syncs sshInstance from directory
         
     }
     getKeys(){
