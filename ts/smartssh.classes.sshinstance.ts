@@ -7,29 +7,30 @@ import {SshConfig} from "./smartssh.classes.sshconfig";
 import {SshKey} from "./smartssh.classes.sshkey";
 
 export class SshInstance {
+    private _sshKeyArray:SshKey[]; //holds all ssh keys
     private _sshConfig:SshConfig; // sshConfig (e.g. represents ~/.ssh/config)
-    sshDir:SshDir; // points to sshDir class instance.
-    protected sshKeyArray:SshKey[]; //holds all ssh keys
+    private _sshDir:SshDir; // points to sshDir class instance.
     private _sshSync:boolean; // if set to true, the ssh dir will be kept in sync automatically
     constructor(optionsArg:{sshDirPath?:string,sshSync?:boolean}={}){
         optionsArg ? void(0) : optionsArg = {};
-        this.sshKeyArray = [];
+        this._sshKeyArray = [];
+        this._sshConfig = new SshConfig(this._sshKeyArray);
+        this._sshDir = new SshDir(this._sshKeyArray,optionsArg.sshDirPath);
         this._sshSync = optionsArg.sshSync;
-        this.sshDir = new SshDir(this,optionsArg.sshDirPath);
     };
     
     //altering methods
     addKey(sshKeyArg:SshKey){
         this._syncAuto("from");
-        this.sshKeyArray.push(sshKeyArg);
+        this._sshKeyArray.push(sshKeyArg);
         this._syncAuto("to");
     };
     removeKey(sshKeyArg:SshKey){
         this._syncAuto("from");
-        let filteredArray = this.sshKeyArray.filter((sshKeyArg2:SshKey) => {
+        let filteredArray = this._sshKeyArray.filter((sshKeyArg2:SshKey) => {
             return (sshKeyArg != sshKeyArg2);
         });
-        this.sshKeyArray = filteredArray;
+        this._sshKeyArray = filteredArray;
         this._syncAuto("to");
     };
     replaceKey(sshKeyOldArg:SshKey,sshKeyNewArg:SshKey){
@@ -42,7 +43,7 @@ export class SshInstance {
     //
     getKey(hostArg:string):SshKey{
         this._syncAuto("from");
-        let filteredArray = this.sshKeyArray.filter(function(keyArg){
+        let filteredArray = this._sshKeyArray.filter(function(keyArg){
             return (keyArg.host == hostArg);
         });
         if(filteredArray.length > 0){
@@ -53,7 +54,7 @@ export class SshInstance {
     };
     get sshKeys():SshKey[] {
         this._syncAuto("from");
-        return this.sshKeyArray;
+        return this._sshKeyArray;
     };
 
     //FS methods
@@ -72,6 +73,14 @@ export class SshInstance {
         this._sync("from");
     }
 
+    /* ===============================================================
+    ========================= Private Methods ========================
+    ================================================================*/
+
+    private _makeConfig (){
+
+    }
+
     /**
      * method to invoke SshInstance _sync automatically when sshSync is true
      */
@@ -84,9 +93,9 @@ export class SshInstance {
      */
     private _sync(directionArg:string){
         if(directionArg == "from"){
-            this.sshDir.readFromDir(); // call sync method of sshDir class;
+            this._sshDir.readFromDir(); // call sync method of sshDir class;
         } else if(directionArg == "to") {
-            this.sshDir.writeToDir();
+            this._sshDir.writeToDir();
         } else {
             throw new Error("directionArg not recognised. Must be 'to' or 'from'");
         }

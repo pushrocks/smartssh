@@ -6,18 +6,20 @@ import {SshKey} from "./smartssh.classes.sshkey";
 import {SshConfig} from "./smartssh.classes.sshconfig";
 export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
     path:string; // the path of the ssh directory
-    sshInstance:SshInstance;
-    constructor(sshInstanceArg:SshInstance,sshDirPathArg?:string){
-        let sshDirPath:string;
+    private sshKeyArray:SshKey[];
+    constructor(sshKeyArray:SshKey[],sshDirPathArg?:string){
+        this.sshKeyArray = sshKeyArray;
         if(sshDirPathArg){
-            sshDirPath = sshDirPathArg;
+            this.path = sshDirPathArg;
         } else {
-            sshDirPath = plugins.smartpath.get.home();
-        }
-        this.path = sshDirPath;
+            this.path = plugins.path.join(plugins.smartpath.get.home(),".ssh/");
+        };
     }
     writeToDir(){ // syncs sshInstance to directory
-        
+        this.sshKeyArray.forEach((sshKeyArg) => {
+            sshKeyArg.store(this.path);
+            
+        });
     };
     readFromDir(){ // syncs sshInstance from directory
         

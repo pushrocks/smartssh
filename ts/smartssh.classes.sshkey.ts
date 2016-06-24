@@ -57,13 +57,15 @@ export class SshKey {
     set publicKeyBase64(publicKeyArg:string) {
         this.pubKey = plugins.base64.decode(publicKeyArg);
     }
-    
+    read(filePathArg){
+        
+    }
     store(filePathArg?:string){
         let filePathObj = plugins.path.parse(filePathArg);
         if(filePathObj.ext = ".priv"){
-            plugins.smartfile.memory.toFsSync(this.privKey,{fileName:filePathObj.name + filePathObj.ext,filePath:filePathObj.dir});
+            plugins.smartfile.memory.toFsSync(this.privKey,filePathArg);
         } else if (filePathObj.ext = ".pub"){
-            plugins.smartfile.memory.toFsSync(this.pubKey,{fileName:filePathObj.name + filePathObj.ext,filePath:filePathObj.dir});
+            plugins.smartfile.memory.toFsSync(this.pubKey,filePathArg);
         } else { //we assume we are given a directory as filePathArg, so we store the whole key
             plugins.fs.ensureDirSync(filePathObj.dir);
             this.store(plugins.path.join(filePathObj.dir,"key.priv")); // call this function recursivly
