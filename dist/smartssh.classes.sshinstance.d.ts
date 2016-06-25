@@ -1,10 +1,9 @@
 import "typings-global";
-import { SshDir } from "./smartssh.classes.sshdir";
 import { SshKey } from "./smartssh.classes.sshkey";
 export declare class SshInstance {
+    private _sshKeyArray;
     private _sshConfig;
-    sshDir: SshDir;
-    protected sshKeyArray: SshKey[];
+    private _sshDir;
     private _sshSync;
     constructor(optionsArg?: {
         sshDirPath?: string;
@@ -23,6 +22,7 @@ export declare class SshInstance {
      * read ab SshInstance from disk
      */
     readFromDisk(): void;
+    private _makeConfig();
     /**
      * method to invoke SshInstance _sync automatically when sshSync is true
      */

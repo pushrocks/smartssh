@@ -17,13 +17,13 @@ describe("smartssh",function(){
             testSshKey.type.should.equal("duplex");
         });
         it(".publicKey should be public key",function(){
-            testSshKey.publicKey.should.equal("someExamplePublicKey");
+            testSshKey.pubKey.should.equal("someExamplePublicKey");
         });
         it(".privateKey should be private key",function(){
-            testSshKey.privateKey.should.equal("someExamplePrivateKey");
+            testSshKey.privKey.should.equal("someExamplePrivateKey");
         });
         it(".publicKeyBase64 should be public key base 64 encoded",function(){
-            testSshKey.publicKeyBase64;
+            testSshKey.pubKeyBase64;
         })
     });
     describe(".SshInstance",function(){
@@ -56,7 +56,7 @@ describe("smartssh",function(){
             sshKeyArray[2].host.should.equal("github.com");
         });
         it(".getKey() should get a specific key selected by host",function(){
-            testSshInstance.getKey("github.com").publicKey.should.equal("someGitHubPublicKey");
+            testSshInstance.getKey("github.com").pubKey.should.equal("someGitHubPublicKey");
         })
         it(".removeKey() should remove a key",function(){
             testSshInstance.removeKey(testSshInstance.getKey("bitbucket.org"));

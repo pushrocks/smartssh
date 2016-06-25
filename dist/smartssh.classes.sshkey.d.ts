@@ -1,18 +1,21 @@
 import "typings-global";
 export declare class SshKey {
-    private privKey;
-    private pubKey;
-    private hostVar;
+    private _privKey;
+    private _pubKey;
+    private _hostVar;
+    private _authorized;
     constructor(optionsArg?: {
         private?: string;
         public?: string;
         host?: string;
+        authorized?: boolean;
     });
     host: string;
-    privateKey: string;
-    privateKeyBase64: string;
-    publicKey: string;
-    publicKeyBase64: string;
-    type: string;
+    privKey: string;
+    privKeyBase64: string;
+    pubKey: string;
+    pubKeyBase64: string;
+    type: any;
+    read(filePathArg: any): void;
     store(filePathArg?: string): void;
 }

@@ -3,71 +3,81 @@ import * as plugins from "./smartssh.plugins";
 import * as helpers from "./smartssh.classes.helpers";
 
 export class SshKey {
-    private privKey:string;
-    private pubKey:string;
-    private hostVar:string;
-    private authorized:boolean;
+    private _privKey:string;
+    private _pubKey:string;
+    private _hostVar:string;
+    private _authorized:boolean;
     constructor(optionsArg:{private?:string,public?:string,host?:string,authorized?:boolean}={}){
-        this.privKey = optionsArg.private;
-        this.pubKey = optionsArg.public;
-        this.hostVar = optionsArg.host;
-        this.authorized = optionsArg.authorized;
+        this._privKey = optionsArg.private;
+        this._pubKey = optionsArg.public;
+        this._hostVar = optionsArg.host;
+        this._authorized = optionsArg.authorized;
     };
     
-    // getters
+    // this.host
     get host(){
-        return this.hostVar;
+        return this._hostVar;
     };
-    get privateKey(){
-        return this.privKey;
+    set host(hostArg:string){
+        this._hostVar = hostArg;
     };
-    get privateKeyBase64(){
-        return plugins.base64.encode(this.privKey);
+
+    // this.privKey
+    get privKey(){
+        return this._privKey;
+    };
+    set privKey(privateKeyArg:string){
+        this._privKey = privateKeyArg;
+    };
+
+    // this.privKeyBase64
+    get privKeyBase64(){
+        return plugins.base64.encode(this._privKey);
     }
-    get publicKey(){
-        return this.pubKey;
+    set privKeyBase64(privateKeyArg:string) {
+        this._privKey = plugins.base64.decode(privateKeyArg);
     }
-    get publicKeyBase64(){
-        return plugins.base64.encode(this.pubKey);
+
+    // this.pubKey
+    get pubKey(){
+        return this._pubKey;
     }
+    set pubKey(publicKeyArg:string){
+        this._pubKey = publicKeyArg;
+    };
+
+    // this.pubKeyBase64
+    get pubKeyBase64(){
+        return plugins.base64.encode(this._pubKey);
+    }
+    set pubKeyBase64(publicKeyArg:string) {
+        this._pubKey = plugins.base64.decode(publicKeyArg);
+    }
+
+
     get type(){
-        if(this.privKey && this.pubKey){
+        if(this._privKey && this._pubKey){
             return "duplex";
-        } else if(this.privKey){
+        } else if(this._privKey){
             return "private";
-        } else if(this.pubKey){
+        } else if(this._pubKey){
             return "public";
         }
     };
-    
-    // setters
-    set host(hostArg:string){
-        this.hostVar = hostArg;
-    };
-    set privateKey(privateKeyArg:string){
-        this.privKey = privateKeyArg;
-    };
-    
-    set privateKeyBase64(privateKeyArg:string) {
-        this.privKey = plugins.base64.decode(privateKeyArg);
+    set type(someVlueArg:any){
+        console.log("the type of an SshKey connot be set. This value is  autpcomputed.")
     }
 
-    set publicKey(publicKeyArg:string){
-        this.pubKey = publicKeyArg;
-    };
-
-    set publicKeyBase64(publicKeyArg:string) {
-        this.pubKey = plugins.base64.decode(publicKeyArg);
-    }
+    // methods
     read(filePathArg){
         
     }
     store(filePathArg?:string){
         let filePathObj = plugins.path.parse(filePathArg);
         if(filePathObj.ext = ".priv"){
-            plugins.smartfile.memory.toFsSync(this.privKey,filePathArg);
+            plugins.smartfile.memory.toFsSync(this._privKey,filePathArg);
         } else if (filePathObj.ext = ".pub"){
-            plugins.smartfile.memory.toFsSync(this.pubKey,filePathArg);
+            plugins.smartfile.memory.toFsSync(this._pubKey,filePathArg);
         } else { //we assume we are given a directory as filePathArg, so we store the whole key
             plugins.fs.ensureDirSync(filePathObj.dir);
             this.store(plugins.path.join(filePathObj.dir,"key.priv")); // call this function recursivly
@@ -75,3 +85,5 @@ export class SshKey {
         }
     }
 }
+
+let testKey = new SshKey();
