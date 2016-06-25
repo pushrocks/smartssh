@@ -72,12 +72,12 @@ export class SshKey {
     read(filePathArg){
         
     }
-    store(filePathArg?:string){
-        let filePathObj = plugins.path.parse(filePathArg);
+    store(dirPathArg?:string){
+        let filePathObj = plugins.path.parse(dirPathArg);
         if(filePathObj.ext = ".priv"){
-            plugins.smartfile.memory.toFsSync(this._privKey,filePathArg);
+            plugins.smartfile.memory.toFsSync(this._privKey,dirPathArg);
         } else if (filePathObj.ext = ".pub"){
-            plugins.smartfile.memory.toFsSync(this._pubKey,filePathArg);
+            plugins.smartfile.memory.toFsSync(this._pubKey,dirPathArg);
         } else { //we assume we are given a directory as filePathArg, so we store the whole key
             plugins.fs.ensureDirSync(filePathObj.dir);
             this.store(plugins.path.join(filePathObj.dir,"key.priv")); // call this function recursivly

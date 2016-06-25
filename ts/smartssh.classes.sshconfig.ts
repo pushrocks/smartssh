@@ -15,9 +15,10 @@ export class SshConfig {
     storeConfig(dirPathArg:string){
         let done = plugins.q.defer();
         let configArray:configObject[];
-
+        
         return done.promise;
     }
+    readConfig
 };
 
 let createConfigPath = () => {
