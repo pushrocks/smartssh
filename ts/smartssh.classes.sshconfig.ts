@@ -10,13 +10,19 @@ export class SshConfig {
     }
 
     /**
-     * the current config
+     * stores a config file
      */
-    get config(){
+    storeConfig(dirPathArg:string){
+        let done = plugins.q.defer();
         let configArray:configObject[];
-        return configArray;
+
+        return done.promise;
     }
 };
+
+let createConfigPath = () => {
+    
+}
 
 export interface configObject {
     host:string;

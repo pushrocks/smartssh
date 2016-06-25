@@ -4,9 +4,9 @@ export declare class SshConfig {
     sshKeyArray: SshKey[];
     constructor(sshKeyArrayArg: SshKey[]);
     /**
-     * the current config
+     * stores a config file
      */
-    config: configObject[];
+    storeConfig(dirPathArg: string): any;
 }
 export interface configObject {
     host: string;
