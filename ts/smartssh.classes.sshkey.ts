@@ -6,10 +6,12 @@ export class SshKey {
     private privKey:string;
     private pubKey:string;
     private hostVar:string;
-    constructor(optionsArg:{private?:string,public?:string,host?:string}={}){
+    private authorized:boolean;
+    constructor(optionsArg:{private?:string,public?:string,host?:string,authorized?:boolean}={}){
         this.privKey = optionsArg.private;
         this.pubKey = optionsArg.public;
         this.hostVar = optionsArg.host;
+        this.authorized = optionsArg.authorized;
     };
     
     // getters
