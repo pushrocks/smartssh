@@ -15,7 +15,8 @@ export declare class SshKey {
     privKeyBase64: string;
     pubKey: string;
     pubKeyBase64: string;
+    authorized: boolean;
     type: any;
     read(filePathArg: any): void;
-    store(filePathArg?: string): void;
+    store(dirPathArg?: string): void;
 }

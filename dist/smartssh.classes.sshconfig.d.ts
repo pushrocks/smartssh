@@ -6,10 +6,11 @@ export declare class SshConfig {
     /**
      * stores a config file
      */
-    storeConfig(dirPathArg: string): any;
+    store(dirPathArg: string): any;
+    read(dirPathArg: any): any;
 }
 export interface configObject {
-    host: string;
+    configString: string;
     authorized: boolean;
     sshKey: SshKey;
 }

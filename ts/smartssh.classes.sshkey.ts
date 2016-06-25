@@ -54,7 +54,12 @@ export class SshKey {
         this._pubKey = plugins.base64.decode(publicKeyArg);
     }
 
-
+    get authorized(){
+        return this._authorized;
+    }
+    set authorized(authorizedArg:boolean){
+        this._authorized = authorizedArg;
+    }
     get type(){
         if(this._privKey && this._pubKey){
             return "duplex";

@@ -7,7 +7,8 @@ import {SshConfig} from "./smartssh.classes.sshconfig";
 export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
     path:string; // the path of the ssh directory
     private sshKeyArray:SshKey[];
-    constructor(sshKeyArray:SshKey[],sshDirPathArg?:string){
+    private sshConfig:SshConfig;
+    constructor(sshKeyArray:SshKey[],sshConfig:SshConfig,sshDirPathArg?:string){
         this.sshKeyArray = sshKeyArray;
         if(sshDirPathArg){
             this.path = sshDirPathArg;
@@ -18,8 +19,8 @@ export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
     writeToDir(){ // syncs sshInstance to directory
         this.sshKeyArray.forEach((sshKeyArg) => {
             sshKeyArg.store(this.path);
-            
         });
+        this.sshConfig.store(this.path);
     };
     readFromDir(){ // syncs sshInstance from directory
         

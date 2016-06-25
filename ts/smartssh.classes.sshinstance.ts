@@ -15,7 +15,7 @@ export class SshInstance {
         optionsArg ? void(0) : optionsArg = {};
         this._sshKeyArray = [];
         this._sshConfig = new SshConfig(this._sshKeyArray);
-        this._sshDir = new SshDir(this._sshKeyArray,optionsArg.sshDirPath);
+        this._sshDir = new SshDir(this._sshKeyArray,this._sshConfig,optionsArg.sshDirPath);
         this._sshSync = optionsArg.sshSync;
     };
     
@@ -101,5 +101,3 @@ export class SshInstance {
         }
     };
 }
-
-

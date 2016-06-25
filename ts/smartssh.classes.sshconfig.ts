@@ -12,21 +12,40 @@ export class SshConfig {
     /**
      * stores a config file
      */
-    storeConfig(dirPathArg:string){
+    store(dirPathArg:string){
+        let done = plugins.q.defer();
+        let configArray:configObject[];
+        let configString;
+        for(let key in this.sshKeyArray){
+            let sshKey = this.sshKeyArray[key];
+            if(sshKey.host){
+                configString = "Host " + sshKey.host + "\n" +
+                                   "  HostName " + sshKey.host + "\n" +
+                                   "  IdentityFile ~/.ssh/" + sshKey.host + "\n"
+            }
+            configArray.push({
+                configString:configString,
+                authorized: sshKey.authorized,
+                sshKey: sshKey
+            });
+        }
+        let configFile:string = "";
+        for(let key in configArray){
+            configFile = configFile + configArray[key].configString + "\n";
+        };
+        plugins.smartfile.memory.toFsSync(configFile,dirPathArg);
+        return done.promise;
+    }
+    read(dirPathArg){
         let done = plugins.q.defer();
         let configArray:configObject[];
         
         return done.promise;
     }
-    readConfig
 };
 
-let createConfigPath = () => {
-    
-}
-
 export interface configObject {
-    host:string;
+    configString:string;
     authorized:boolean;
     sshKey:SshKey;
 };
