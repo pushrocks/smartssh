@@ -5,3 +5,4 @@ docs/
 ts/typings/
 ts/*.js
 ts/*.js.map
+test/temp/

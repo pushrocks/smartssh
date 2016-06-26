@@ -1,6 +1,7 @@
 import "typings-test"
 import "should";
 import smartssh = require("../dist/index");
+import path = require("path");
 describe("smartssh",function(){
     let testSshInstance:smartssh.SshInstance;
     let testSshKey:smartssh.SshKey;
@@ -24,6 +25,9 @@ describe("smartssh",function(){
         });
         it(".publicKeyBase64 should be public key base 64 encoded",function(){
             testSshKey.pubKeyBase64;
+        });
+        it(".store() should store the file to disk",function(){
+            testSshKey.store(path.join(process.cwd(),"test/temp"));
         })
     });
     describe(".SshInstance",function(){

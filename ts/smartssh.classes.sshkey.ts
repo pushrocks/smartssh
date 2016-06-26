@@ -77,7 +77,7 @@ export class SshKey {
     read(filePathArg){
         
     }
-    store(dirPathArg?:string){
+    store(dirPathArg:string){
         plugins.fs.ensureDirSync(dirPathArg);
         let fileNameBase =  this.host;
         if(this._privKey){

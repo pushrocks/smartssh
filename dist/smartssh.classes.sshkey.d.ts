@@ -18,5 +18,5 @@ export declare class SshKey {
     authorized: boolean;
     type: any;
     read(filePathArg: any): void;
-    store(dirPathArg?: string): void;
+    store(dirPathArg: string): void;
 }
