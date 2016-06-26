@@ -14,14 +14,15 @@ export class SshConfig {
      */
     store(dirPathArg:string){
         let done = plugins.q.defer();
-        let configArray:configObject[];
+        let configArray:configObject[] = [];
         let configString;
         for(let key in this.sshKeyArray){
             let sshKey = this.sshKeyArray[key];
             if(sshKey.host){
                 configString = "Host " + sshKey.host + "\n" +
                                    "  HostName " + sshKey.host + "\n" +
-                                   "  IdentityFile ~/.ssh/" + sshKey.host + "\n"
+                                   "  IdentityFile ~/.ssh/" + sshKey.host + "\n" +
+                                   "  StrictHostKeyChecking no" + "\n"
             }
             configArray.push({
                 configString:configString,
@@ -33,7 +34,7 @@ export class SshConfig {
         for(let key in configArray){
             configFile = configFile + configArray[key].configString + "\n";
         };
-        plugins.smartfile.memory.toFsSync(configFile,dirPathArg);
+        plugins.smartfile.memory.toFsSync(configFile,plugins.path.join(dirPathArg,"config"));
         return done.promise;
     }
     read(dirPathArg){

@@ -28,11 +28,13 @@ describe("smartssh",function(){
         });
         it(".store() should store the file to disk",function(){
             testSshKey.store(path.join(process.cwd(),"test/temp"));
-        })
+        });
     });
     describe(".SshInstance",function(){
         it("'new' keyword should create a new SshInstance object from class",function(){
-            testSshInstance = new smartssh.SshInstance();
+            testSshInstance = new smartssh.SshInstance({
+                sshDirPath: path.join(process.cwd(),"test/temp/")
+            });
             testSshInstance.should.be.instanceof(smartssh.SshInstance);
         });
         it(".addKey() should accept a new SshKey object",function(){
@@ -65,6 +67,9 @@ describe("smartssh",function(){
         it(".removeKey() should remove a key",function(){
             testSshInstance.removeKey(testSshInstance.getKey("bitbucket.org"));
             testSshInstance.sshKeys[1].host.should.equal("github.com");
+        });
+        it("it should store to disk",function(){
+            testSshInstance.writeToDisk();
         })
     });
 })

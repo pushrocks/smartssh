@@ -5,27 +5,31 @@ import {SshInstance} from "./smartssh.classes.sshinstance";
 import {SshKey} from "./smartssh.classes.sshkey";
 import {SshConfig} from "./smartssh.classes.sshconfig";
 export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
-    path:string; // the path of the ssh directory
-    private sshKeyArray:SshKey[];
-    private sshConfig:SshConfig;
+    private _path:string; // the path of the ssh directory
+    private _sshKeyArray:SshKey[];
+    private _sshConfig:SshConfig;
     constructor(sshKeyArray:SshKey[],sshConfig:SshConfig,sshDirPathArg?:string){
-        this.sshKeyArray = sshKeyArray;
+        this._sshKeyArray = sshKeyArray;
+        this._sshConfig = sshConfig;
         if(sshDirPathArg){
-            this.path = sshDirPathArg;
+            this._path = sshDirPathArg;
         } else {
-            this.path = plugins.path.join(plugins.smartpath.get.home(),".ssh/");
+            this._path = plugins.path.join(plugins.smartpath.get.home(),".ssh/");
         };
     }
     writeToDir(){ // syncs sshInstance to directory
-        this.sshKeyArray.forEach((sshKeyArg) => {
-            sshKeyArg.store(this.path);
+        this._sshKeyArray.forEach((sshKeyArg) => {
+            sshKeyArg.store(this._path);
         });
-        this.sshConfig.store(this.path);
+        this._sshConfig.store(this._path);
     };
     readFromDir(){ // syncs sshInstance from directory
         
     }
+    updateDirPath(dirPathArg:string){
+        this._path = dirPathArg;
+    };
     getKeys(){
-        return helpers.sshKeyArrayFromDir(this.path);
+        return helpers.sshKeyArrayFromDir(this._path);
     }
 }
