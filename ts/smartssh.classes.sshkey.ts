@@ -81,10 +81,14 @@ export class SshKey {
         plugins.fs.ensureDirSync(dirPathArg);
         let fileNameBase =  this.host;
         if(this._privKey){
-            plugins.smartfile.memory.toFsSync(this._privKey,plugins.path.join(dirPathArg,fileNameBase));
+            let filePath = plugins.path.join(dirPathArg,fileNameBase);
+            plugins.smartfile.memory.toFsSync(this._privKey,filePath);
+            plugins.shelljs.chmod(600,filePath);
         };
         if (this._pubKey){
-            plugins.smartfile.memory.toFsSync(this._pubKey,plugins.path.join(dirPathArg,fileNameBase + ".pub"));
+            let filePath = plugins.path.join(dirPathArg,fileNameBase + ".pub");
+            plugins.smartfile.memory.toFsSync(this._pubKey,filePath);
+            plugins.shelljs.chmod(600,filePath);
         }
     }
 }

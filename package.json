@@ -28,6 +28,7 @@
     "js-base64": "^2.1.9",
     "minimatch": "^3.0.2",
     "q": "^1.4.1",
+    "shelljs": "^0.7.0",
     "smartfile": "^4.0.5",
     "smartpath": "^3.2.2",
     "typings-global": "^1.0.3",
