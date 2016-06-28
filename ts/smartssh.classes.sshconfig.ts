@@ -4,9 +4,9 @@ import * as helpers from "./smartssh.classes.helpers";
 import {SshKey} from "./smartssh.classes.sshkey"
 
 export class SshConfig {
-    sshKeyArray:SshKey[];
+    private _sshKeyArray:SshKey[];
     constructor(sshKeyArrayArg:SshKey[]){
-        this.sshKeyArray = sshKeyArrayArg;
+        this._sshKeyArray = sshKeyArrayArg;
     }
 
     /**
@@ -16,8 +16,8 @@ export class SshConfig {
         let done = plugins.q.defer();
         let configArray:configObject[] = [];
         let configString;
-        for(let key in this.sshKeyArray){
-            let sshKey = this.sshKeyArray[key];
+        for(let key in this._sshKeyArray){
+            let sshKey = this._sshKeyArray[key];
             if(sshKey.host){
                 configString = "Host " + sshKey.host + "\n" +
                                    "  HostName " + sshKey.host + "\n" +
@@ -40,7 +40,8 @@ export class SshConfig {
     read(dirPathArg){
         let done = plugins.q.defer();
         let configArray:configObject[];
-        
+        plugins.smartfile.fs.toStringSync(plugins.path.join(dirPathArg,"config"));
+
         return done.promise;
     }
 };

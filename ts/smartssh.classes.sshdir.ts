@@ -17,14 +17,17 @@ export class SshDir { // sshDir class -> NOT EXPORTED, ONLY FOR INTERNAL USE
             this._path = plugins.path.join(plugins.smartpath.get.home(),".ssh/");
         };
     }
-    writeToDir(){ // syncs sshInstance to directory
+    writeToDir(dirPathArg?:string){ // syncs sshInstance to directory
+        let path = this._path;
+        if(dirPathArg) path = dirPathArg;
         this._sshKeyArray.forEach((sshKeyArg) => {
-            sshKeyArg.store(this._path);
+            sshKeyArg.store(path);
         });
-        this._sshConfig.store(this._path);
+        this._sshConfig.store(path);
     };
-    readFromDir(){ // syncs sshInstance from directory
-        
+    readFromDir(dirPathArg?:string){ // syncs sshInstance from directory
+        let path = this._path;
+        if(dirPathArg) path = dirPathArg;
     }
     updateDirPath(dirPathArg:string){
         this._path = dirPathArg;

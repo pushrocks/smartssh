@@ -17,11 +17,11 @@ export declare class SshInstance {
     /**
      * write SshInstance to disk
      */
-    writeToDisk(): void;
+    writeToDisk(dirPathArg?: string): void;
     /**
      * read ab SshInstance from disk
      */
-    readFromDisk(): void;
+    readFromDisk(dirPathArg?: string): void;
     private _makeConfig();
     /**
      * method to invoke SshInstance _sync automatically when sshSync is true
@@ -30,5 +30,5 @@ export declare class SshInstance {
     /**
      * private method to sync SshInstance
      */
-    private _sync(directionArg);
+    private _sync(directionArg, dirPathArg?);
 }

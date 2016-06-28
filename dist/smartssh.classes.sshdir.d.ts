@@ -6,8 +6,8 @@ export declare class SshDir {
     private _sshKeyArray;
     private _sshConfig;
     constructor(sshKeyArray: SshKey[], sshConfig: SshConfig, sshDirPathArg?: string);
-    writeToDir(): void;
-    readFromDir(): void;
+    writeToDir(dirPathArg?: string): void;
+    readFromDir(dirPathArg?: string): void;
     updateDirPath(dirPathArg: string): void;
     getKeys(): SshKey[];
 }

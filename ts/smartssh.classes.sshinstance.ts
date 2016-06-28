@@ -62,15 +62,15 @@ export class SshInstance {
     /**
      * write SshInstance to disk
      */
-    writeToDisk(){
-        this._sync("to");
+    writeToDisk(dirPathArg?:string){
+        this._sync("to",dirPathArg);
     }
 
     /**
      * read ab SshInstance from disk
      */
-    readFromDisk(){
-        this._sync("from");
+    readFromDisk(dirPathArg?:string){
+        this._sync("from",dirPathArg);
     }
 
     /* ===============================================================
@@ -91,11 +91,11 @@ export class SshInstance {
     /**
      * private method to sync SshInstance
      */
-    private _sync(directionArg:string){
+    private _sync(directionArg:string,dirPathArg?:string){
         if(directionArg == "from"){
-            this._sshDir.readFromDir(); // call sync method of sshDir class;
+            this._sshDir.readFromDir(dirPathArg); // call sync method of sshDir class;
         } else if(directionArg == "to") {
-            this._sshDir.writeToDir();
+            this._sshDir.writeToDir(dirPathArg);
         } else {
             throw new Error("directionArg not recognised. Must be 'to' or 'from'");
         }

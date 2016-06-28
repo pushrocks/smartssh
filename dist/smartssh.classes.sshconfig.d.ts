@@ -1,7 +1,7 @@
 import "typings-global";
 import { SshKey } from "./smartssh.classes.sshkey";
 export declare class SshConfig {
-    sshKeyArray: SshKey[];
+    private _sshKeyArray;
     constructor(sshKeyArrayArg: SshKey[]);
     /**
      * stores a config file
