@@ -1,9 +1,12 @@
-import "typings-global";
+import 'typings-global';
 export declare class SshKey {
     private _privKey;
     private _pubKey;
     private _hostVar;
     private _authorized;
+    /**
+     * the constructor for class SshKey
+     */
     constructor(optionsArg?: {
         private?: string;
         public?: string;

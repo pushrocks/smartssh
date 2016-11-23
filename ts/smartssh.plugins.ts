@@ -1,10 +1,22 @@
-import "typings-global"
-export import beautylog = require("beautylog");
-export let base64 = require("js-base64").Base64;
-export let fs = require("fs-extra");
-export let minimatch = require("minimatch");
-export import path = require("path");
-export let q = require("q");
-export let shelljs = require("shelljs");
-export import smartfile = require("smartfile");
-export import smartpath = require("smartpath");
+import 'typings-global'
+import * as beautylog from 'beautylog'
+import * as fs from 'fs-extra'
+import * as minimatch from 'minimatch'
+import * as path from 'path'
+import * as q from 'q'
+import * as shelljs from 'shelljs'
+import * as smartfile from 'smartfile'
+import * as smartpath from 'smartpath'
+import * as smartstring from 'smartstring'
+
+export {
+    beautylog,
+    fs,
+    minimatch,
+    path,
+    q,
+    shelljs,
+    smartfile,
+    smartpath,
+    smartstring
+}

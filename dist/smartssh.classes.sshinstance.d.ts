@@ -1,5 +1,5 @@
-import "typings-global";
-import { SshKey } from "./smartssh.classes.sshkey";
+import 'typings-global';
+import { SshKey } from './smartssh.classes.sshkey';
 export declare class SshInstance {
     private _sshKeyArray;
     private _sshConfig;
@@ -13,7 +13,7 @@ export declare class SshInstance {
     removeKey(sshKeyArg: SshKey): void;
     replaceKey(sshKeyOldArg: SshKey, sshKeyNewArg: SshKey): void;
     getKey(hostArg: string): SshKey;
-    sshKeys: SshKey[];
+    readonly sshKeys: SshKey[];
     /**
      * write SshInstance to disk
      */

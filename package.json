@@ -23,19 +23,25 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartssh#readme",
   "dependencies": {
-    "beautylog": "^5.0.12",
-    "fs-extra": "^0.30.0",
-    "js-base64": "^2.1.9",
-    "minimatch": "^3.0.2",
+    "@types/fs-extra": "0.0.35",
+    "@types/js-base64": "^2.1.5",
+    "@types/minimatch": "^2.0.29",
+    "@types/q": "0.0.32",
+    "@types/shelljs": "^0.3.33",
+    "beautylog": "^6.0.0",
+    "fs-extra": "^1.0.0",
+    "minimatch": "^3.0.3",
     "q": "^1.4.1",
-    "shelljs": "^0.7.0",
-    "smartfile": "^4.0.5",
-    "smartpath": "^3.2.2",
-    "typings-global": "^1.0.3",
-    "typings-test": "^1.0.1"
+    "shelljs": "^0.7.5",
+    "smartfile": "^4.1.0",
+    "smartpath": "^3.2.5",
+    "smartstring": "^2.0.22",
+    "typings-global": "^1.0.14"
   },
   "devDependencies": {
-    "npmts-g": "^5.2.6",
-    "should": "^9.0.2"
+    "@types/should": "^8.1.30",
+    "npmts-g": "^5.2.8",
+    "should": "^11.1.1",
+    "typings-test": "^1.0.3"
   }
 }

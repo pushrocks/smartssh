@@ -1,13 +1,21 @@
 "use strict";
 require("typings-global");
-exports.beautylog = require("beautylog");
-exports.base64 = require("js-base64").Base64;
-exports.fs = require("fs-extra");
-exports.minimatch = require("minimatch");
-exports.path = require("path");
-exports.q = require("q");
-exports.shelljs = require("shelljs");
-exports.smartfile = require("smartfile");
-exports.smartpath = require("smartpath");
-
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNtYXJ0c3NoLnBsdWdpbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLFFBQU8sZ0JBQ1AsQ0FBQyxDQURzQjtBQUNULGlCQUFTLFdBQVcsV0FBVyxDQUFDLENBQUM7QUFDcEMsY0FBTSxHQUFHLE9BQU8sQ0FBQyxXQUFXLENBQUMsQ0FBQyxNQUFNLENBQUM7QUFDckMsVUFBRSxHQUFHLE9BQU8sQ0FBQyxVQUFVLENBQUMsQ0FBQztBQUN6QixpQkFBUyxHQUFHLE9BQU8sQ0FBQyxXQUFXLENBQUMsQ0FBQztBQUM5QixZQUFJLFdBQVcsTUFBTSxDQUFDLENBQUM7QUFDMUIsU0FBQyxHQUFHLE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQztBQUNqQixlQUFPLEdBQUcsT0FBTyxDQUFDLFNBQVMsQ0FBQyxDQUFDO0FBQzFCLGlCQUFTLFdBQVcsV0FBVyxDQUFDLENBQUM7QUFDakMsaUJBQVMsV0FBVyxXQUFXLENBQUMsQ0FBQyIsImZpbGUiOiJzbWFydHNzaC5wbHVnaW5zLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFwidHlwaW5ncy1nbG9iYWxcIlxuZXhwb3J0IGltcG9ydCBiZWF1dHlsb2cgPSByZXF1aXJlKFwiYmVhdXR5bG9nXCIpO1xuZXhwb3J0IGxldCBiYXNlNjQgPSByZXF1aXJlKFwianMtYmFzZTY0XCIpLkJhc2U2NDtcbmV4cG9ydCBsZXQgZnMgPSByZXF1aXJlKFwiZnMtZXh0cmFcIik7XG5leHBvcnQgbGV0IG1pbmltYXRjaCA9IHJlcXVpcmUoXCJtaW5pbWF0Y2hcIik7XG5leHBvcnQgaW1wb3J0IHBhdGggPSByZXF1aXJlKFwicGF0aFwiKTtcbmV4cG9ydCBsZXQgcSA9IHJlcXVpcmUoXCJxXCIpO1xuZXhwb3J0IGxldCBzaGVsbGpzID0gcmVxdWlyZShcInNoZWxsanNcIik7XG5leHBvcnQgaW1wb3J0IHNtYXJ0ZmlsZSA9IHJlcXVpcmUoXCJzbWFydGZpbGVcIik7XG5leHBvcnQgaW1wb3J0IHNtYXJ0cGF0aCA9IHJlcXVpcmUoXCJzbWFydHBhdGhcIik7Il19
+const beautylog = require("beautylog");
+exports.beautylog = beautylog;
+const fs = require("fs-extra");
+exports.fs = fs;
+const minimatch = require("minimatch");
+exports.minimatch = minimatch;
+const path = require("path");
+exports.path = path;
+const q = require("q");
+exports.q = q;
+const shelljs = require("shelljs");
+exports.shelljs = shelljs;
+const smartfile = require("smartfile");
+exports.smartfile = smartfile;
+const smartpath = require("smartpath");
+exports.smartpath = smartpath;
+const smartstring = require("smartstring");
+exports.smartstring = smartstring;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic21hcnRzc2gucGx1Z2lucy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3RzL3NtYXJ0c3NoLnBsdWdpbnMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLDBCQUF1QjtBQUN2Qix1Q0FBc0M7QUFXbEMsOEJBQVM7QUFWYiwrQkFBOEI7QUFXMUIsZ0JBQUU7QUFWTix1Q0FBc0M7QUFXbEMsOEJBQVM7QUFWYiw2QkFBNEI7QUFXeEIsb0JBQUk7QUFWUix1QkFBc0I7QUFXbEIsY0FBQztBQVZMLG1DQUFrQztBQVc5QiwwQkFBTztBQVZYLHVDQUFzQztBQVdsQyw4QkFBUztBQVZiLHVDQUFzQztBQVdsQyw4QkFBUztBQVZiLDJDQUEwQztBQVd0QyxrQ0FBVyJ9
