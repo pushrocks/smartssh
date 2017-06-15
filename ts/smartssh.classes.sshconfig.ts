@@ -41,7 +41,7 @@ export class SshConfig {
         let done = plugins.q.defer()
         let configArray: configObject[]
         plugins.smartfile.fs.toStringSync(plugins.path.join(dirPathArg,'config'))
-
+        
         return done.promise
     }
 };

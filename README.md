@@ -1,7 +1,7 @@
 # smartssh
 setups SSH quickly and in a painless manner
 
-> Attention: This is still alpha, so some things won't work, not all things are inplemented.
+> Attention: This is still alpha, so some things won't work, not all things are implemented.
 
 ## Availabililty
 [![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/smartssh)
