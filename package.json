@@ -1,6 +1,6 @@
 {
   "name": "@pushrocks/smartssh",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": false,
   "description": "setups SSH quickly and in a painless manner",
   "main": "dist/index.js",
