@@ -1,11 +1,14 @@
 {
-  "name": "smartssh",
+  "name": "@pushrocks/smartssh",
   "version": "1.2.2",
+  "private": false,
   "description": "setups SSH quickly and in a painless manner",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(npmts)"
+    "test": "(tstest test/)",
+    "testDocker": "npmdocker",
+    "build": "(tsbuild)"
   },
   "repository": {
     "type": "git",
@@ -23,22 +26,21 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartssh#readme",
   "dependencies": {
-    "@types/fs-extra": "3.0.3",
-    "@types/js-base64": "^2.1.5",
-    "@types/minimatch": "^2.0.29",
-    "@types/q": "1.0.0",
-    "@types/shelljs": "^0.7.2",
-    "beautylog": "^6.1.10",
-    "fs-extra": "^3.0.1",
-    "minimatch": "^3.0.4",
-    "q": "^1.5.0",
-    "shelljs": "^0.7.8",
-    "smartfile": "^4.2.17",
-    "smartpath": "^3.2.8",
-    "smartstring": "^2.0.24",
-    "typings-global": "^1.0.17"
+    "@pushrocks/smartfile": "^6.0.8",
+    "@pushrocks/smartpath": "^4.0.1",
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@pushrocks/smartshell": "^2.0.6",
+    "@pushrocks/smartstring": "^3.0.4",
+    "@types/fs-extra": "^5.0.4",
+    "@types/minimatch": "^3.0.3",
+    "fs-extra": "^7.0.0",
+    "minimatch": "^3.0.4"
   },
   "devDependencies": {
-    "tapbundle": "^1.0.14"
+    "@gitzone/tsbuild": "^2.0.22",
+    "@gitzone/tsrun": "^1.1.12",
+    "@gitzone/tstest": "^1.0.15",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "@types/node": "^10.10.1"
   }
 }
