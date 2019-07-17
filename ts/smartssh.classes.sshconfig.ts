@@ -12,7 +12,7 @@ export class SshConfig {
    * stores a config file
    */
   store(dirPathArg: string) {
-    let done = plugins.q.defer();
+    let done = plugins.smartpromise.defer();
     let configArray: configObject[] = [];
     let configString;
     for (let key in this._sshKeyArray) {
@@ -45,7 +45,7 @@ export class SshConfig {
     return done.promise;
   }
   read(dirPathArg) {
-    let done = plugins.q.defer();
+    let done = plugins.smartpromise.defer();
     let configArray: configObject[];
     plugins.smartfile.fs.toStringSync(plugins.path.join(dirPathArg, 'config'));
 

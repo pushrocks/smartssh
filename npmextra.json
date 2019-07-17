@@ -2,5 +2,15 @@
   "npmci": {
     "npmGlobalTools": [],
     "npmAccessLevel": "public"
+  },
+  "gitzone": {
+    "module": {
+      "githost": "gitlab.com",
+      "gitscope": "pushrocks",
+      "gitrepo": "smartssh",
+      "shortDescription": "setups SSH quickly and in a painless manner",
+      "npmPackagename": "@pushrocks/smartssh",
+      "license": "MIT"
+    }
   }
 }

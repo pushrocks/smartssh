@@ -7,7 +7,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "test": "(tstest test/)",
-    "testDocker": "npmdocker",
+    "testDocker": "tsdocker",
     "build": "(tsbuild)"
   },
   "repository": {
@@ -26,21 +26,32 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartssh#readme",
   "dependencies": {
-    "@pushrocks/smartfile": "^6.0.8",
+    "@pushrocks/smartfile": "^7.0.4",
     "@pushrocks/smartpath": "^4.0.1",
-    "@pushrocks/smartpromise": "^2.0.5",
-    "@pushrocks/smartshell": "^2.0.6",
-    "@pushrocks/smartstring": "^3.0.4",
-    "@types/fs-extra": "^5.0.4",
+    "@pushrocks/smartpromise": "^3.0.2",
+    "@pushrocks/smartshell": "^2.0.23",
+    "@pushrocks/smartstring": "^3.0.10",
+    "@types/fs-extra": "^8.0.0",
     "@types/minimatch": "^3.0.3",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^8.1.0",
     "minimatch": "^3.0.4"
   },
   "devDependencies": {
-    "@gitzone/tsbuild": "^2.0.22",
-    "@gitzone/tsrun": "^1.1.12",
-    "@gitzone/tstest": "^1.0.15",
-    "@pushrocks/tapbundle": "^3.0.7",
-    "@types/node": "^10.10.1"
-  }
+    "@gitzone/tsbuild": "^2.1.11",
+    "@gitzone/tsdocker": "^1.2.39",
+    "@gitzone/tsrun": "^1.2.6",
+    "@gitzone/tstest": "^1.0.24",
+    "@pushrocks/tapbundle": "^3.0.11",
+    "@types/node": "^12.6.6"
+  },
+  "files": [
+    "ts/*",
+    "ts_web/*",
+    "dist/*",
+    "dist_web/*",
+    "assets/*",
+    "cli.js",
+    "npmextra.json",
+    "readme.md"
+  ]
 }

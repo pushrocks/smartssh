@@ -1,27 +1,20 @@
-# smartssh
-
+# @pushrocks/smartssh
 setups SSH quickly and in a painless manner
 
-> Attention: This is still alpha, so some things won't work, not all things are implemented.
-
-## Availabililty
-
-[![npm](https://push.rocks/assets/repo-button-npm.svg)](https://www.npmjs.com/package/smartssh)
-[![git](https://push.rocks/assets/repo-button-git.svg)](https://gitlab.com/pushrocks/smartssh)
-[![git](https://push.rocks/assets/repo-button-mirror.svg)](https://github.com/pushrocks/smartssh)
-[![docs](https://push.rocks/assets/repo-button-docs.svg)](https://pushrocks.gitlab.io/smartssh/)
+## Availabililty and Links
+* [npmjs.org (npm package)](https://www.npmjs.com/package/@pushrocks/smartssh)
+* [gitlab.com (source)](https://gitlab.com/pushrocks/smartssh)
+* [github.com (source mirror)](https://github.com/pushrocks/smartssh)
+* [docs (typedoc)](https://pushrocks.gitlab.io/smartssh/)
 
 ## Status for master
-
 [![build status](https://gitlab.com/pushrocks/smartssh/badges/master/build.svg)](https://gitlab.com/pushrocks/smartssh/commits/master)
 [![coverage report](https://gitlab.com/pushrocks/smartssh/badges/master/coverage.svg)](https://gitlab.com/pushrocks/smartssh/commits/master)
-[![npm downloads per month](https://img.shields.io/npm/dm/smartssh.svg)](https://www.npmjs.com/package/smartssh)
-[![Dependency Status](https://david-dm.org/pushrocks/smartssh.svg)](https://david-dm.org/pushrocks/smartssh)
-[![bitHound Dependencies](https://www.bithound.io/github/pushrocks/smartssh/badges/dependencies.svg)](https://www.bithound.io/github/pushrocks/smartssh/master/dependencies/npm)
-[![bitHound Code](https://www.bithound.io/github/pushrocks/smartssh/badges/code.svg)](https://www.bithound.io/github/pushrocks/smartssh)
-[![TypeScript](https://img.shields.io/badge/TypeScript-2.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
-[![node](https://img.shields.io/badge/node->=%206.x.x-blue.svg)](https://nodejs.org/dist/latest-v6.x/docs/api/)
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![npm downloads per month](https://img.shields.io/npm/dm/@pushrocks/smartssh.svg)](https://www.npmjs.com/package/@pushrocks/smartssh)
+[![Known Vulnerabilities](https://snyk.io/test/npm/@pushrocks/smartssh/badge.svg)](https://snyk.io/test/npm/@pushrocks/smartssh)
+[![TypeScript](https://img.shields.io/badge/TypeScript->=%203.x-blue.svg)](https://nodejs.org/dist/latest-v10.x/docs/api/)
+[![node](https://img.shields.io/badge/node->=%2010.x.x-blue.svg)](https://nodejs.org/dist/latest-v10.x/docs/api/)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
 ## Usage
 
@@ -55,4 +48,9 @@ sshInstance.getKey({
 sshInstance.getKeys(); // returns array of all available getKeys. Each key is in form of class sshKey
 ```
 
-[![npm](https://push.rocks/assets/repo-header.svg)](https://push.rocks)
+For further information read the linked docs at the top of this readme.
+
+> MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
+| By using this npm module you agree to our [privacy policy](https://lossless.gmbH/privacy.html)
+
+[![repo-footer](https://pushrocks.gitlab.io/assets/repo-footer.svg)](https://maintainedby.lossless.com)

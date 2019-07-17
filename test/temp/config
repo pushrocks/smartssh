@@ -1,0 +1,15 @@
+Host gitlab.com
+  HostName gitlab.com
+  IdentityFile ~/.ssh/gitlab.com
+  StrictHostKeyChecking no
+
+Host bitbucket.org
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/bitbucket.org
+  StrictHostKeyChecking no
+
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github.com
+  StrictHostKeyChecking no
+
